@@ -1,0 +1,11 @@
+apiVersion: skaffold/v1-cloudrun
+kind: Config
+build:
+    artifacts:
+    - image: gcr.io/k8s-skaffold/docs-controller
+      docker:
+        dockerfile: deploy/webhook/Dockerfile
+        cacheFrom:
+          - gcr.io/k8s-skaffold/docs-controller
+deploy:
+  cloudRun:
