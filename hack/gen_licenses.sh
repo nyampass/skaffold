@@ -32,6 +32,7 @@ if ! [[ -f ${LICENSES} ]]; then
 fi
 
 TMP_DIR=$(mktemp -d)
+echo ${LICENSES} save "github.com/GoogleContainerTools/skaffold/cmd/skaffold" --save_path="${TMP_DIR}/skaffold-credits"
 ${LICENSES} save "github.com/GoogleContainerTools/skaffold/cmd/skaffold" --save_path="${TMP_DIR}/skaffold-credits"
 
 if ! [[ -f ${STATIK} ]]; then

@@ -95,16 +95,16 @@ require (
 	golang.org/x/crypto v0.0.0-20191112222119-e1110fd1c708
 	golang.org/x/exp v0.0.0-20191127035308-9964a5a80460 // indirect
 	golang.org/x/lint v0.0.0-20191125180803-fdd1cda4f05f // indirect
-	golang.org/x/net v0.0.0-20191126235420-ef20fe5d7933 // indirect
-	golang.org/x/oauth2 v0.0.0-20191122200657-5d9234df094c
+	golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553 // indirect
+	golang.org/x/oauth2 v0.0.0-20191202225959-858c2ad4c8b6
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
-	golang.org/x/sys v0.0.0-20191127021746-63cb32ae39b2 // indirect
+	golang.org/x/sys v0.0.0-20191210023423-ac6580df4449 // indirect
 	golang.org/x/time v0.0.0-20191024005414-555d28b269f0 // indirect
 	golang.org/x/tools v0.0.0-20191127064951-724660f1afeb // indirect
 	golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898 // indirect
 	google.golang.org/api v0.14.0
 	google.golang.org/appengine v1.6.5 // indirect
-	google.golang.org/genproto v0.0.0-20191115221424-83cc0476cb11
+	google.golang.org/genproto v0.0.0-20191206224255-0243a4be9c8f
 	google.golang.org/grpc v1.25.1
 	gopkg.in/AlecAivazis/survey.v1 v1.8.7
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
