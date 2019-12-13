@@ -81,8 +81,7 @@ var SchemaVersions = Versions{
 	{v1beta15.Version, v1beta15.NewSkaffoldConfig},
 	{v1beta16.Version, v1beta16.NewSkaffoldConfig},
 	{v1beta17.Version, v1beta17.NewSkaffoldConfig},
-	{v1.Version, v1.NewSkaffoldConfig},
-	{v1CloudRun.Version, v1.NewSkaffoldConfig},
+	{v1.Version, v1CloudRun.NewSkaffoldConfig},
 	{latest.Version, latest.NewSkaffoldConfig},
 }
 
@@ -120,6 +119,7 @@ func ParseConfig(filename string, upgrade bool) (util.VersionedConfig, error) {
 	if !present {
 		return nil, errors.Errorf("unknown api version: '%s'", apiVersion.Version)
 	}
+	fmt.Println(apiVersion.Version)
 
 	// Remove all top-level keys starting with `.` so they can be used as YAML anchors
 	parsed := make(map[string]interface{})
@@ -140,6 +140,8 @@ func ParseConfig(filename string, upgrade bool) (util.VersionedConfig, error) {
 	if err := yaml.UnmarshalStrict(buf, cfg); err != nil {
 		return nil, errors.Wrap(err, "unable to parse config")
 	}
+
+	fmt.Printf("cfg: %+v\n, upgrade: %+v", cfg, upgrade)
 
 	if upgrade && cfg.GetVersion() != latest.Version {
 		cfg, err = upgradeToLatest(cfg)

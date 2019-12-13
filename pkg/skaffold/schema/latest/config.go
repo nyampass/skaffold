@@ -386,6 +386,24 @@ type DeployType struct {
 
 	// KustomizeDeploy *beta* uses the `kustomize` CLI to "patch" a deployment for a target environment.
 	KustomizeDeploy *KustomizeDeploy `yaml:"kustomize,omitempty" yamltags:"oneOf=deploy"`
+
+	// KustomizeDeploy *beta* uses the `kustomize` CLI to "patch" a deployment for a target environment.
+	CloudRunDeploy *CloudRunDeploy `yaml:"cloudRun,omitempty" yamltags:"oneOf=deploy"`
+}
+
+// CloudRunDeploy uses `gcloud beta run` to deploy Cloud Run.
+type CloudRunDeploy struct {
+	// Releases is a list of Cloud Run releases.
+	Releases []CloudRunRelease `yaml:"releases,omitempty" yamltags:"required"`
+}
+
+// CloudRunRelease describes a Cloud Run release to be deployed.
+type CloudRunRelease struct {
+	// Name is the name of the Helm release.
+	Name string `yaml:"name,omitempty" yamltags:"required"`
+
+	// ValuesFiles are the paths to the Helm `values` files.
+	ValuesFiles []string `yaml:"valuesFiles,omitempty"`
 }
 
 // KubectlDeploy *beta* uses a client side `kubectl apply` to deploy manifests.
